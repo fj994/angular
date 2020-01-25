@@ -1,0 +1,22 @@
+.roww {
+    width: 100%;
+}
+
+.formm label, button {
+    margin-top: 20px;
+}
+.formm input, select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 5px;
+}
+
+.formm button {
+    width: 100px;
+    padding: 5px;
+}
+
+.formm .ng-invalid.ng-touched {
+    border: 1px solid red;
+}

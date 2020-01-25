@@ -1,0 +1,33 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <button class="btn btn-success" type="submit" [disabled]="!editForm.valid">{{editMode ? 'Save' : 'Add'}}</button>
+        <button type="button" [routerLink]="['/recipes']" class="btn btn-danger">Cancel</button>
+    </div>
+    <div class="row">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div class="row">
+        <label for="url">Image URL</label>
+        <input type="text" name="url" id="url" formControlName="imagePath" #imagePath>
+    </div>
+    <div class="row">
+        <img class="img-responsive" [src]="imagePath.value">
+    </div>
+    <div class="row">
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" formControlName="description">
+    </div>
+    <div class="row ingredients" formArrayName="ingredients">
+        <label for="name">Recipe ingredients:</label>
+        <div>
+            <button class="btn btn-success add" type="button" (click)="addIngredient()">Add ingredient</button>
+        </div>
+        <div [formGroupName]="i" *ngFor="let ingredient of getIngredients(); let i = index">
+            <!-- <label [for]="i">Ingredient {{i + 1}}:</label> -->
+            <input class="ingredName" type="text" [id]="i" placeholder="Name" formControlName="name">
+            <input class="ingredAmount" type="number" placeholder="Amount" formControlName="amount">
+            <button type="button" class="btn btn-danger delete" (click)="deleteIngredient(i)">X</button>
+        </div>
+    </div>
+</form>

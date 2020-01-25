@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="formm">
+        <div class="roww">
+          <label for="email">Email:</label>
+          <input 
+            type="text" 
+            name="email"
+            value="email"
+            id="email"
+            email
+            required
+            ngModel
+            #email="ngModel"
+            >
+            <p *ngIf="!email.valid && email.touched">Please enter a valid email!</p>
+        </div>
+        <div class="roww">
+          <label for="subscription">Subscription type:</label>
+          <select [ngModel]="'advanced'" name="subscription" id="subscription">
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <div class="roww">
+          <label for="password">Password</label>
+          <input 
+            type="password"
+            id="password" 
+            name="pass"
+            required
+            ngModel
+            #pass="ngModel">
+            <span *ngIf="!pass.valid && pass.touched">Password is required!</span>
+          </div>
+          <div class="roww">
+            <button type="submit">Submit</button>
+          </div>
+      </form>
+      <!-- Add a Form with the following Inputs (and Validators)
+           1) Mail address (should not be empty and should be an email address)
+           2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
+              Set "Advanced" as Default
+           3) A Password field (should not be empty)
+           4) A Submit Button
+
+           Display a warning message if the Form is invalid AND was touched. Display a warning message below each input if it's invalid.
+
+           Upon submitting the form, you should simply print the Value of the Form to the Console.
+           Optionally, display it in your template.
+      -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<label>Username</label>
+<input 
+  type="text"
+  [(ngModel)] = "username">
+<p>{{username}}</p>
+<button 
+  (click) = "username = ''"
+  [disabled]="!username">Add user</button>

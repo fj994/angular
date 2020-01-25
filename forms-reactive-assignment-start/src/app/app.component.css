@@ -1,0 +1,17 @@
+.container {
+  margin-top: 30px;
+}
+.roww {
+  margin-bottom: 25px;
+}
+
+.row input, select {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
